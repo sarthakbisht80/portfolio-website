@@ -1,9 +1,7 @@
 <h1 align="center">🌐 My Portfolio Website</h1>
 <p align="center">A modern, responsive developer portfolio built with React, Tailwind CSS, and Vite.</p>
 
-<p align="center">
-  <img src="./banner.png" alt="Portfolio Website Preview" width="800">
-</p>
+
 
 ---
 
@@ -43,7 +41,7 @@ It features a clean, responsive design with smooth animations, dark mode, and an
 
 ### Projects Page
 <p align="center">
-  <img src="./screenshots/projects.png" alt="Projects Page" width="800">
+  <img src="./portfolio//public/ProjectPage.png" alt="Projects Page" width="800">
 </p>
 
 ---
@@ -51,7 +49,7 @@ It features a clean, responsive design with smooth animations, dark mode, and an
 ## ⚡️ Run Locally
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+
 cd portfolio
 npm install
 npm run dev
