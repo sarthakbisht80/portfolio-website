@@ -12,7 +12,7 @@
 This is my personal developer portfolio showcasing my skills, projects, and contact information.  
 It features a clean, responsive design with smooth animations, dark mode, and an interactive projects showcase.
 
-**🔗 Live Demo:** [https://sarthakbisht-portfolio.vercel.app](https://sarthakbisht-portfolio.vercel.app)
+**🔗 Live Demo:** [https://portfolio-website-jade-iota-26.vercel.app/]
 
 ---
 
@@ -38,7 +38,7 @@ It features a clean, responsive design with smooth animations, dark mode, and an
 
 ### Home Page
 <p align="center">
-  <img src="./screenshots/home.png" alt="Home Page" width="800">
+  <img src="/portfolio/public/homepage.png" alt="Home Page" width="800">
 </p>
 
 ### Projects Page
