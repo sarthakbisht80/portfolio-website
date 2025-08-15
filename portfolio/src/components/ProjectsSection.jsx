@@ -13,13 +13,12 @@ const projects = [
 
   {
     id: 2,
-    title: "Movie-App",
-    description:
-      "Netflix Inspired Movie application with robust ui and ",
+    title: "StreamFlix",
+    description:"A Netflix-inspired web app with user authentication, movie browsing, and responsive UI ",
     image: "/projects/Pro-2.png",
     tags: ["React", "Firebase","Firestore Database","TailwindCSS"],
-    demoUrl: "https://movie-one-eta.vercel.app/",
-    githubUrl: "https://github.com/sarthakbisht80/Streamify/tree/main/Movie-app/netflix-clone",
+    demoUrl: "https://streamflix-gold-delta.vercel.app/",
+    githubUrl: "https://github.com/sarthakbisht80/streamflix.git",
   },
 ];
 
