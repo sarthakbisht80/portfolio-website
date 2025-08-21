@@ -9,7 +9,7 @@ const navItems = [
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-  { name: "Resume", href: "#resume", isResume: true }, // ✅ Added Resume item
+  { name: "Resume", href: "#resume", isResume: true },
 ];
 
 export const Navbar = () => {
@@ -20,15 +20,12 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Resume handler
   const handleResumeClick = (e) => {
     e.preventDefault();
-
     // Open Google Drive view link
     window.open(
       "https://drive.google.com/file/d/1jGwK09Z6kVYJa27IBuIk-qygzKv5Xkp7/view?usp=sharing",
@@ -85,20 +82,29 @@ export const Navbar = () => {
               </a>
             )
           )}
-          {/* Theme Toggle Button */}
+          {/* Theme Toggle */}
           <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Controls: Resume, ThemeToggle, Menu */}
+        <div className="flex md:hidden items-center space-x-4 z-50">
+          <button
+            onClick={handleResumeClick}
+            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+          >
+            Resume
+          </button>
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="p-2 text-foreground"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-        {/* Mobile Nav */}
+        {/* Mobile Nav Overlay */}
         <div
           className={cn(
             "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
@@ -109,19 +115,9 @@ export const Navbar = () => {
           )}
         >
           <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems.map((item, key) =>
-              item.isResume ? (
-                <button
-                  key={key}
-                  onClick={(e) => {
-                    handleResumeClick(e);
-                    setIsMenuOpen(false);
-                  }}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                >
-                  {item.name}
-                </button>
-              ) : (
+            {navItems
+              .filter((item) => !item.isResume) // Exclude Resume from mobile menu
+              .map((item, key) => (
                 <a
                   key={key}
                   href={item.href}
@@ -130,10 +126,7 @@ export const Navbar = () => {
                 >
                   {item.name}
                 </a>
-              )
-            )}
-            {/* Theme Toggle in Mobile Menu */}
-            <ThemeToggle />
+              ))}
           </div>
         </div>
       </div>
