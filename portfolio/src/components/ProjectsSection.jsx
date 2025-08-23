@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Streamify",
+    title: "LETSCHAT",
     description: "A real-time chat application with instant messaging and a sleek, responsive UI.",
     image: "/projects/Pro-1.png",
     tags: ["React", "Tailwind CSS", "MongoDB Atlas", "Node.js", "Express.js"],
@@ -13,12 +13,12 @@ const projects = [
 
   {
     id: 2,
-    title: "StreamFlix",
-    description:"A Netflix-inspired web app with user authentication, movie browsing, and responsive UI ",
+    title: "TRAVEL BUDDY",
+    description:"A responsive web app built with React, Redux, and Firebase to track expenses, set budgets, and analyze travel spending.",
     image: "/projects/Pro-2.png",
-    tags: ["React", "Firebase","Firestore Database","TailwindCSS"],
-    demoUrl: "https://streamflix-gold-delta.vercel.app/",
-    githubUrl: "https://github.com/sarthakbisht80/streamflix.git",
+    tags: ["ReactJS", "Firebase", "Redux-Toolkit" ,"TailwindCSS"],
+    demoUrl: "https://travel-expense-tracker-gamma.vercel.app/",
+    githubUrl: "https://github.com/sarthakbisht80/travel-expense-tracker",
   },
 ];
 
