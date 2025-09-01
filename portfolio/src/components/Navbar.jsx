@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "./ThemeToggle"; // adjust path if needed
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -17,9 +17,7 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -46,27 +44,27 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "w-full fixed top-0 left-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "py-3 bg-background/80 backdrop-blur-md shadow-sm"
+          : "py-5 bg-transparent"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"></span> Portfolio
-          </span>
+          <span className="relative z-10">Portfolio</span>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item, key) =>
+          {navItems.map((item, idx) =>
             item.isResume ? (
               <button
-                key={key}
+                key={idx}
                 onClick={handleResumeClick}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
               >
@@ -74,7 +72,7 @@ export const Navbar = () => {
               </button>
             ) : (
               <a
-                key={key}
+                key={idx}
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
               >
@@ -82,12 +80,11 @@ export const Navbar = () => {
               </a>
             )
           )}
-          {/* Theme Toggle */}
           <ThemeToggle />
         </div>
 
-        {/* Mobile Controls: Resume, ThemeToggle, Menu */}
-        <div className="flex md:hidden items-center space-x-4 z-50">
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center space-x-4">
           <button
             onClick={handleResumeClick}
             className="text-foreground/80 hover:text-primary transition-colors duration-300"
@@ -103,31 +100,28 @@ export const Navbar = () => {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Nav Overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems
-              .filter((item) => !item.isResume) // Exclude Resume from mobile menu
-              .map((item, key) => (
-                <a
-                  key={key}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-          </div>
+      {/* Mobile Slide-in Menu */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-64 bg-background/95 backdrop-blur-md z-40 transform transition-transform duration-300 md:hidden",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="flex flex-col mt-24 space-y-8 text-xl items-center">
+          {navItems
+            .filter((item) => !item.isResume)
+            .map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
         </div>
       </div>
     </nav>
