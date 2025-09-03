@@ -26,14 +26,14 @@ export const Navbar = () => {
     e.preventDefault();
     // Open Google Drive view link
     window.open(
-      "https://drive.google.com/file/d/1Z_EkNooJDbAsV5Zxn-Uu1gHUxN8WdvqQ/view?usp=sharing",
+      "https://drive.google.com/file/d/15-DD5XGNXVWT3ESsKOaLsNkncHfs3Sjo/view?usp=sharing",
       "_blank"
     );
 
     // Trigger download
     const downloadLink = document.createElement("a");
     downloadLink.href =
-      "https://drive.google.com/uc?export=download&id=1Z_EkNooJDbAsV5Zxn-Uu1gHUxN8WdvqQ";
+      "https://drive.google.com/uc?export=download&id=15-DD5XGNXVWT3ESsKOaLsNkncHfs3Sjo";
     downloadLink.download = "Sarthak_resume.pdf";
     downloadLink.style.display = "none";
     document.body.appendChild(downloadLink);
