@@ -156,10 +156,7 @@ export const Navbar = () => {
                 ))}
             </div>
 
-            {/* Theme Toggle in Menu */}
-            <div className="absolute bottom-8 z-[10000]">
-              <ThemeToggle />
-            </div>
+            
           </div>
         </div>
       )}
