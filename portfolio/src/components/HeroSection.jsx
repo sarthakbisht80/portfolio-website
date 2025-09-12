@@ -1,5 +1,5 @@
 import { ArrowDown } from "lucide-react";
-
+import {Typewriter} from "react-simple-typewriter";
 export const HeroSection = () => {
   return (
     <section
@@ -25,7 +25,26 @@ export const HeroSection = () => {
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
               {" "}Bisht
             </span>
+             
           </h1>
+          <h2>
+             <span className="text-2xl gradient ml-2 opacity-0 animate-fade-in-delay-1">
+              {" "}a
+                <Typewriter
+                words={[
+                  " Web Developer",
+                  " UI/UX Designer",
+                  " Web Designer",
+                ]}
+                loop={0} // 0 = infinite loop
+                typeSpeed={10}
+                deleteSpeed={5}
+                delaySpeed={2000} // wait time before deleting
+                cursor
+                cursorStyle="|"
+              />
+            </span>
+          </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
             Full Stack Developer | Building scalable web apps with clean code & great UX. Passionate about React, Node.js, and turning ideas into reality.
